@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/1.css' %}">
+    
+</head>
+<body>
+    <main>
+<header class="header">
+    <div class="container">
+        <div class="wrapper">
+            <div class="header-logo">
+                <img src="{% static 'img/icon.png' %}" alt="img-error" class="logo">
+                <a class="header-1">Zhaz</a>
+            </div>  
+            <div class="header-wrp">
+                <div class="headers">  
+                    <nav> 
+                    <a href="#home" class="header-2">Home</a>
+                    <a href="#about" class="header-2">About us</a>
+                    <a href="#review" class="header-2">Reviews</a>
+       
+                    </div> 
+                    </nav>
+                    {% if request.user.is_authenticated %}
+                    <a href="#review" class="header-2">{{user.username}}</a>
+                    {%else%}
+                    <a href="{% url 'registration' %}"><button class="header_btn">Log in</button></a>
+                    {% endif %}  
+                   
+            </div>  
+        </div>
+    </div>
+</header>
+<section class="home" id="home">
+    <div class="container">
+        <div class="start-container">
+            <div class="textt">
+            <h1 class="main-text">Organize your <br> tasks and <br> thoughts</h1>
+            <p class="text-1">Ensure your success with the <span style="color: #FFB7D5">ZHAZ</span> :<br> manage goals and objectives, prioritize <br> and do everything you have planned. </p>
+            <a href="{% url 'registration' %}"><button class="header_btn-1">Start</button> </a>
+         </div>
+            <img src="{% static 'img/Taking notes-amico 1.png' %}" alt="img-error" class="img-main">
+        </div>
+    </div>
+</section>
+<section class="about-us" id="about">
+    <div class="container">
+    <h1 id="abt1">About us</h1>
+    <div class="about-us-photext">
+        <img src="{% static 'img/photo-2.png' %}">
+        <div class="about-us-text">
+            <p class="text-1"><span style="color: #FFB7D5">ZHAZ </span> is a wonderful website that helps <br> people from all over the world to organize<br>their time efficiently every day. </p>
+            <p class="text-1" id="ast">It will provide you with access to the task list wherever you are. The main feature of this platform is that it is absolutely free</p>
+        </div>
+    </div>
+    </div>
+    </section>
+<section class="reviews" id="review">
+    <div class="container">
+        <h1 id="abt1">Lets see what our users say</h1>
+        <div class="reviews-photos">         
+            <img src="{% static 'img/item-1.png' %}" alt="img-error" id="item-1">
+            <img src="{% static 'img/item-2.png' %}" alt="img-error" id="item-2">
+            <img src="{% static 'img/item-3.png' %}" alt="img-error" id="item-3">
+        </div>
+    </div>
+</section>
+</main>
+
+    
+    <script src="1.js"></script>
+</body>
+</html>

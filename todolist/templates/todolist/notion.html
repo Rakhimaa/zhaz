@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc3b5c4449.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dycalendarjs@1.2.1/css/dycalendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/4.css' %}">
+</head>
+
+<body>
+    <main>
+        <div class="container-main">
+            <div class="container-1">
+                <img src="{% static 'img/page-3-icon.png' %}" alt="img-error" id="page-3-icon">
+                <div class="container-switch-1">
+                    <img src="{% static 'img/switch-logo1.png' %}" alt="img-error" id="switch-logo1">
+                    <a href="{% url 'main' %}" style="text-decoration:none ;">
+                        <p id="switch-text1">MY TASKS</p>
+                    </a>
+
+                </div>
+                <div class="container-switch-2">
+                    <img src="{% static 'img/switch-logo2.png' %}" alt="img-error" id="switch-logo1">
+                    <p id="switch-text2" style="text-decoration:none ;">NOTES</p>
+                </div>
+            </div>
+            <div class="main-side">
+
+                <div class="search-part">
+                    <div class="search-container">
+                        <img src="{% static 'img/search-logo.png' %}" alt="img-error" id="search-logo">
+                        <p id="search-text"><input type="search" placeholder="Search" class="search-input"></p>
+
+                    </div>
+                    <img src="{% static 'img/notification-logo.png' %}" alt="img-error" id="notification">
+                    <img src="{% static 'img/avatar.png' %}" alt="img-error" id="avatar">
+                </div>
+                <div id="wrapper">
+                    <div id="note-editor">
+                        <h2 id="note-editor-title">Create Note</h2>
+                        <form action="{% url 'note' %}" method="POST">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                        <div id="button">
+                            <button id="add-btn">Create Note</button>
+                            <div id="error"></div>
+                        </div>
+                    </form>
+                    </div>
+
+                    <div id="notes-section">
+                        <h2>Notes</h2>
+                        <ul id="notes">
+                            {% for note in notes %}
+                            <li class="{{note.color}}"><span class="delete"><i class="fa fa-trash-o"
+                                        aria-hidden="true"></i></span><span class="note-title">{{note.title}}</span><span
+                                    class="note-message">{{note.discription}}</span>
+                                <footer><span class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        Edit</span></footer>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/4.js' %}"></script>
+    </main>
+</body>
+
+</html>

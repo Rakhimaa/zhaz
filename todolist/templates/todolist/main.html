@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc3b5c4449.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dycalendarjs@1.2.1/css/dycalendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/3.css' %}">
+</head>
+<body>
+    <main>
+        <div class="container-main">
+        <div class="container-1">
+            <img   src="{% static 'img/page-3-icon.png' %}"alt="img-error" id="page-3-icon">
+                <div class="container-switch-1">
+                    <img src="{% static 'img/page-3-switch-logo1.png' %}" alt="img-error" id="switch-logo1">
+                    <p id="switch-text1" style="text-decoration:none ;">MY TASKS</p>
+                    <div class="block"></div>
+                </div>
+            <div class="container-switch-2" >
+                <img src="{% static 'img/page-3-switch-logo2.png' %}" alt="img-error" id="switch-logo1">
+                <a href="{% url 'notion' %}" style="text-decoration:none"><p id="switch-text2" style="text-decoration:none ;">NOTES</p></a>
+            </div>       
+        </div>
+        <div class="main-side">
+
+            <div class="search-part">
+                <div class="search-container">
+                    <img src="{% static 'img/search-logo.png' %}" alt="img-error" id="search-logo">
+                    <p id="search-text"><input type=text placeholder="Search" id="elastic"></p>
+    
+                </div>
+                <img src="{% static 'img/notification-logo.png' %}" alt="img-error" id="notification">
+                <img src="{% static 'img/avatar.png' %}" alt="img-error" id="avatar">  
+            </div>
+            <div class="tasks">
+                <div class="wrapper">
+                    <div class="task-input">
+                      <input type="text" placeholder="Add a new task">
+                    </div>
+                    <div class="controls">
+                      <div class="filters">
+                        <span class="active" id="all">All</span>
+                        <span id="pending">Pending</span>
+                        <span id="completed">Completed</span>
+                        <audio  src="{% static 'img/notification.mp3' %}" id="audio" controls style="display: none";></audio>
+                      </div>
+                      <button class="clear-btn">Clear All</button>
+                    </div>
+                    <ul class="task-box"></ul>
+                  </div>
+                    </div>
+            <div class="container-calendar">
+
+            <div class="dycalendar" id="dycalendar"></div> 
+            </div>
+        </div>  
+            
+        </div>
+        </div>
+
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/dycalendarjs@1.2.1/js/dycalendar.js"></script>
+       <script src="{% static 'js/3.js' %}"></script>
+    </main>
+</body>
+</html>
